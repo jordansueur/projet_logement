@@ -4,7 +4,7 @@
 #include "logement.h"
 
 
-void afficheAnnonce(liste a){
+void afficheAnnonce(liste a){ // Fonction qui sert à afficher les annonces
     printf("\n-----------------\n");
     printf("\nidAnnonce : %d", a->idAnnonce);
     if(a->type == Appartement){
@@ -12,7 +12,7 @@ void afficheAnnonce(liste a){
     }else if(a->type == Maison){
         printf("\nType : Maison");
     }
-    printf("\nnbPi�ces : %d\nSurface : %.2f\nLoyer : %.2f\nCharge : %.2f", a->nbPieces, a->surface, a->loyer, a->charge);
+    printf("\nnbPièces : %d\nSurface : %.2f\nLoyer : %.2f\nCharge : %.2f", a->nbPieces, a->surface, a->loyer, a->charge);
     printf("\n=================\n");
 }
 
@@ -34,7 +34,7 @@ liste saisie(liste lt){
         a->type = Maison;
     }
 
-    printf("\nSaisir nombre de pi�ces : ");
+    printf("\nSaisir nombre de pièces : ");
     scanf("%d", &a->nbPieces);
 
     printf("\nSaisir surface : ");
@@ -51,7 +51,7 @@ liste saisie(liste lt){
 }
 
 
-int countListe(liste ltTotal){
+int countListe(liste ltTotal){ // Fonction qui sert à compter les listes
     liste lt2;
     int cpt=0;
 
@@ -66,7 +66,7 @@ int countListe(liste ltTotal){
 }
 
 
-liste ajoutAnnonce(liste ltTotal){
+liste ajoutAnnonce(liste ltTotal){ // Fonction qui sert à ajouter une annonce
     liste lt2;
     Annonce *a = NULL;
 
@@ -110,8 +110,8 @@ void afficheListe(liste ltTotal){
     }
 }
 
-//chercher par type de logement saisie
-void chercheType(liste ltTotal){
+
+void chercheType(liste ltTotal){ // Fonction qui sert à chercher une annonce à partir du type
     liste lt2=NULL;
     int typ,cpt=0;
 
@@ -133,14 +133,14 @@ void chercheType(liste ltTotal){
 }
 
 
-void chercheNbPieces(liste ltTotal){
+void chercheNbPieces(liste ltTotal){ // Fonction qui sert à chercher une annonce à partir du nombre de pièces
     liste lt2=NULL;
     int nbPiece,cpt=0;
 
     lt2 = ltTotal;
 
     do{
-        printf("\nSaisir nombre de pi�ces(plus grand que 0): ");
+        printf("\nSaisir nombre de pièces(plus grand que 0): ");
         scanf("%d", &nbPiece);
     }while(nbPiece<1);
 
@@ -155,7 +155,7 @@ void chercheNbPieces(liste ltTotal){
 }
 
 
-void chercheSurface(liste ltTotal){
+void chercheSurface(liste ltTotal){ // Fonction qui sert à chercher une annonce à partir de la surface
     liste lt2=NULL;
     int cpt=0;
     float surface;
@@ -178,7 +178,7 @@ void chercheSurface(liste ltTotal){
 }
 
 
-void chercheNbLoyer(liste ltTotal){
+void chercheNbLoyer(liste ltTotal){ // Fonction qui sert à chercher une annonce à partir du prix du loyer
     liste lt2=NULL;
     int nbPiece, cpt=0;
     float loyer;
@@ -186,7 +186,7 @@ void chercheNbLoyer(liste ltTotal){
     lt2 = ltTotal;
 
     do{
-        printf("\nSaisir nombre de pi�ces(plus grand que 0): ");
+        printf("\nSaisir nombre de pièces(plus grand que 0): ");
         scanf("%d", &nbPiece);
     }while(nbPiece<1);
 
@@ -206,7 +206,7 @@ void chercheNbLoyer(liste ltTotal){
 }
 
 
-float cherchePrix(int id, liste ltTotal){
+float cherchePrix(int id, liste ltTotal){ // Fonction qui sert à chercher une annonce à partir du prix
     liste lt2=NULL;
     float prix;
 
@@ -223,7 +223,7 @@ float cherchePrix(int id, liste ltTotal){
 }
 
 
-void afficheParId(int id, liste ltTotal){
+void afficheParId(int id, liste ltTotal){ // Fonction qui sert à chercher une annonce à partir de son identifiant
     liste lt2=NULL;
 
     lt2 = ltTotal;
@@ -237,7 +237,7 @@ void afficheParId(int id, liste ltTotal){
 }
 
 
-void chercheBudget(liste ltTotal){
+void chercheBudget(liste ltTotal){ // Fonction qui sert à chercher une annonce par rapport au budget
     liste lt2=NULL;
     float budget, prix1, prix2;
     int longeur, i, j, tmp, cpt=0;
@@ -291,7 +291,7 @@ void chercheBudget(liste ltTotal){
 }
 
 
-void sauvegarder(liste ltTotal){
+void sauvegarder(liste ltTotal){ // Fonction qui sert à sauvegarder une annonce
     FILE *fichier;
     char type[15];
     char emplacement[255];
